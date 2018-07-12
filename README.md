@@ -22,7 +22,7 @@ If you use this approach in your research, please cite:
 
 
 ### Results
-1. ![patches](https://github.com/ZhengyuZhao/Adaptive-Discriminative-Region-Discovery/blob/master/figures/discriminative_patches_final.pdf)
+1. ![patches](https://github.com/ZhengyuZhao/Adaptive-Discriminative-Region-Discovery/blob/master/figures/discriminative_patches_final.png)
 
 
 
