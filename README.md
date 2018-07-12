@@ -22,7 +22,10 @@ If you use this approach in your research, please cite:
 
 
 ### Results
-1. ![patches](https://github.com/ZhengyuZhao/Adaptive-Discriminative-Region-Discovery/blob/master/figures/discriminative_patches_final.jpg)
+1.Visualized examples of top discriminative patches (smallest-scale) discovered by Adi-Red for different categories of Places365-Standard validation set.
+
+
+![patches](https://github.com/ZhengyuZhao/Adaptive-Discriminative-Region-Discovery/blob/master/figures/discriminative_patches_final.jpg)
 
 
 
