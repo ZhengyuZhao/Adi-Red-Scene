@@ -17,7 +17,7 @@ If you use this approach in your research, please cite:
 		author = {Zhengyu Zhao and Martha Larson},
 		title = {From Volcano to Toyshop: Adaptive Discriminative Region Discovery for Scene Recognition},
 		Booktitle={ACM Multimedia},
-                Year={2018}
+		Year={2018}
 	}
 
 
