@@ -7,7 +7,7 @@ Radboud University (RU).
 ### Introduction
 
 This repository contains the codes for Adi-Red approach described in the paper [From Volcano to Toyshop: Adaptive Discriminative Region
-Discovery for Scene Recognition](). This approach achieved state-of-the-art performance in terms of Top-1 classification accuracy on the scene benchmark SUN397 (https://groups.csail.mit.edu/vision/SUN/), by discovering discriminative local image patches efficiently. 
+Discovery for Scene Recognition](). This approach achieved state-of-the-art performance in terms of Top-1 classification accuracy on the scene benchmark [SUN397] (https://groups.csail.mit.edu/vision/SUN/), by discovering discriminative local image patches efficiently. 
 
 ### Citation
 
