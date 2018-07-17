@@ -10,7 +10,9 @@ This repository contains codes for Adi-Red approach described in the paper [From
 Discovery for Scene Recognition](). This approach achieved state-of-the-art performance in terms of Top-1 classification accuracy on the scene benchmark [SUN397](https://groups.csail.mit.edu/vision/SUN/), by discovering discriminative local image patches efficiently. 
 
 **Note**
+
 1.The codes include PyTorch scripts in python 3.6, and Matlab scripts written with the version MATLAB 2016b.
+
 ### Citation
 
 If you use this approach in your research, please cite:
