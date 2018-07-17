@@ -11,7 +11,7 @@ Discovery for Scene Recognition](). This approach achieved state-of-the-art perf
 
 **Note**
 
-1.The codes include PyTorch scripts in python 3.6, and Matlab scripts written with the version MATLAB 2016b.
+The codes include PyTorch scripts in python 3.6, and Matlab scripts written with the version MATLAB 2016b.
 
 ### Citation
 
@@ -26,6 +26,7 @@ If you use this approach in your research, please cite:
 
 
 ### Results
+
 1. Visualization of discriminative patches (smallest-scale) discovered by Adi-Red on Places365-Standard validation set. Specially, some patches (from "airfield", "bathroom" and "Japanese garden") convey object-level information. Other patches (from "baseball field" and "campsite") capture contextual semantics, i.e., the interaction between object parts and their surroundings. In another case, non-objectness patterns are captured successfully for the scenes (such as "crosswalk" and "beach"), where finding nameable objects (for example, people and cars in the crosswalk scene) based on region proposals is redundant and might even introduce confusion instead of contributing to their discriminative properties.
 
 
