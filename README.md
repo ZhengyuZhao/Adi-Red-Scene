@@ -11,7 +11,7 @@ Discovery for Scene Recognition](). This approach achieved state-of-the-art perf
 
 **Note**
 
-The codes include PyTorch scripts in python 3.6, and Matlab scripts written with the version MATLAB 2016b.
+The codes include PyTorch scripts in python 3.6, and Matlab scripts written with the version MATLAB 2016b. Neither training from scratch nor fine-tuning is involved in our approach.
 
 ### Citation
 
