@@ -6,11 +6,11 @@ Radboud University (RU).
 
 ### Introduction
 
-This repository contains the codes for Adi-Red approach described in the paper [From Volcano to Toyshop: Adaptive Discriminative Region
+This repository contains codes for Adi-Red approach described in the paper [From Volcano to Toyshop: Adaptive Discriminative Region
 Discovery for Scene Recognition](). This approach achieved state-of-the-art performance in terms of Top-1 classification accuracy on the scene benchmark [SUN397](https://groups.csail.mit.edu/vision/SUN/), by discovering discriminative local image patches efficiently. 
 
 **Note**
-
+The codes include PyTorch scripts in python 3.6, and Matlab scripts written with the version MATLAB 2016b.
 ### Citation
 
 If you use this approach in your research, please cite:
@@ -18,7 +18,7 @@ If you use this approach in your research, please cite:
 	@article{Zhao2018,
 		author = {Zhengyu Zhao and Martha Larson},
 		title = {From Volcano to Toyshop: Adaptive Discriminative Region Discovery for Scene Recognition},
-		Booktitle={ACM Multimedia},
+		Booktitle={ACM International Conference on Multimedia},
 		Year={2018}
 	}
 
