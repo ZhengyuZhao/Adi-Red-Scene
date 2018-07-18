@@ -41,6 +41,7 @@ def  returnTF ():
 def load_model():
     # this model has a last conv feature map as 14x14
     model_file = 'whole_wideresnet18_places365_python36.pth.tar'
+   #download pre-trained Places-CNN model with wideresnet18 structure
     if not os.access(model_file, os.W_OK):
         os.system('wget http://places2.csail.mit.edu/models_places365/' + model_file)
     model = torch.load(model_file, map_location=lambda storage, loc: storage)
