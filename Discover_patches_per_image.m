@@ -7,7 +7,7 @@ ratio=TargetScale./MapSize;
 T=100;%specify the threshold (see the paper for details)
 
 %%
-%crop 224x224 patches in a sliding window manner
+%crop patches with the size of 224x224 in a sliding window manner
 for r_pos=2:MapSize-1
     for c_pos=2:MapSize-1
     SlidingWindow=MapSize(r_pos-1:r_pos+1,c_pos-1:c_pos+1);
