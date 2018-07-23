@@ -11,7 +11,7 @@ Discovery for Scene Recognition](). This approach achieved state-of-the-art perf
 
 **Note**
 
-The codes include PyTorch scripts in python 3.6, and Matlab scripts written with the version MATLAB 2016b. 
+The main code file titled "DisMap_generation_per_image.py" is written with PyTorch in python 3.6, and another file titled "Discover_patches_per_image.m" is written with MATLAB. 
 
 ### Citation
 
