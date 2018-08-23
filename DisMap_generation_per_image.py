@@ -62,10 +62,10 @@ nums=len(class_labels)
 for i in range(0,nums) : 
        class_name=class_labels[i][:-1]
        tf = returnTF() # image transformer
-       dir_out=dir_in+'/'+class_name
+       class_out='out'+class_name
        class_in=dir_in+class_name 
-       if not os.path.exists(dir_out):
-         os.makedirs(dir_out)
+       if not os.path.exists(class_out):
+         os.makedirs(class_out)
        for image_name in os.listdir(class_in): 
           features_blobs = []
           params = list(model.parameters())
@@ -83,5 +83,5 @@ for i in range(0,nums) :
           #DisMap = returnMap(features_blobs[0], weight_softmax, idx[0]) 
          
           
-          cv2.imwrite(dir_out+'/'+image_name, DisMap[0]) #save the generated Dis-Maps into the folder dir_out
+          cv2.imwrite(class_out+'/'+image_name, DisMap[0]) #save the generated Dis-Maps into the folder dir_out
        print(i)
