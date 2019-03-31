@@ -3,13 +3,13 @@ import numpy as np
 from tqdm import tqdm
 
 
-# get training data for palces
+# generate train-test split for Places365-Standard validation set 
 pla_data = pd.read_csv('./data/labels/val_large_labels/places365_val.txt', header=None, sep=' ')
 pla_np = pla_data.values
 
 count = 0
 whole_train = []
-whole_val = []
+whole_test = []
 for i in range(365):
     temp = []
     for item in pla_np:
@@ -20,12 +20,12 @@ for i in range(365):
     whole_train.append(temp)
 
 res_train = np.asarray(whole_train).reshape(-1, 2)
-p.savetxt("./data/labels/val_large_labels/Adi_train_list.txt", res_train,  fmt='%s')
+p.savetxt("./data/labels/val_large_labels/Places_image_list_train.txt", res_train,  fmt='%s')
 
-res_val = np.asarray(pla_np)
+res_test = np.asarray(pla_np)
 to_remove = []
 
-for item in tqdm(res_val):
+for item in tqdm(res_test):
     if item[0] not in res_train[:, 0]:
         to_remove.append(item)
 
@@ -35,7 +35,7 @@ res_final = np.asarray(to_remove)
 res_final.shape
 res_final.sort(axis=0)
 
-np.savetxt("./data/labels/val_large_labels/Adi_val_list.txt", res_final,  fmt='%s')
+np.savetxt("./data/labels/val_large_labels/Places_image_list_test.txt", res_final,  fmt='%s')
 
 
 
@@ -57,7 +57,7 @@ np.save('./data/labels/SUN397_labels/'+'Class_overlap.npy',class_overlap)
 
 
 #Merge the 10 train-test splits into one list to avoid repeating
-#feature extraction from the same image.
+#operation on the same image in the following steps.
 image_list_all=[]
 for split in ['01','02','03','04','05','06','07','08','09','10']:
   with open('./data/labels/SUN397_labels/Training_'+split+'.txt', 'r') as f1:
