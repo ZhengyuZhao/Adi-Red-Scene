@@ -14,8 +14,9 @@
 # --- models
 #   --- __init__.py  
 # --- results
-#	  --- intermediate
-#	  --- final
+#	  --- SUN397_results
+#	  --- val_large_results
+
 
 # --- data_clean.py
 # --- Dis_Map_generation.py
@@ -31,8 +32,8 @@ mkdir models
 
 mkdir datasets/images
 mkdir datasets/labels
-mkdir results/intermediate
-mkdir results/final
+mkdir results/SUN397_results
+mkdir results/val_large_results
 touch models/__init__.py
 
 echo "Downloading datasets..."
