@@ -48,10 +48,10 @@ echo "Downloading labels..."
 mkdir datasets/labels/SUN397_labels
 mkdir datasets/labels/val_large_labels
 wget https://vision.princeton.edu/projects/2010/SUN/download/Partitions.zip -P datasets/labels/SUN397_labels
-unzip Partitions.zip -d datasets/labels/SUN397_labels/
+unzip datasets/labels/SUN397_labels/Partitions.zip -d datasets/labels/SUN397_labels/
 
 wget http://data.csail.mit.edu/places/places365/filelist_places365-standard.tar -P datasets/labels/val_large_labels
-tar -xvf filelist_places365-standard.tar datasets/labels/val_large_labels/
+tar -xvf datasets/labels/val_large_labels/filelist_places365-standard.tar datasets/labels/val_large_labels/
 
 -echo "Cleaning data..."
 python data_clean.py
