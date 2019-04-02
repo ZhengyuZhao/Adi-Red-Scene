@@ -37,8 +37,8 @@ mkdir results/val_large_results
 touch models/__init__.py
 
 echo "Downloading datasets..."
-wget http://vision.princeton.edu/projects/2010/SUN/SUN397.tar.gz -P datasets/images/
-wget http://data.csail.mit.edu/places/places365/val_large.tar -P datasets/images/
+wget http://vision.princeton.edu/projects/2010/SUN/SUN397.tar.gz
+wget http://data.csail.mit.edu/places/places365/val_large.tar
 
 echo "Extracting datasets from compressed files..."
 tar -xvf SUN397.tar.gz datasets/images
@@ -47,11 +47,11 @@ tar -xvf val_large.tar datasets/images
 echo "Downloading labels..."
 mkdir datasets/labels/SUN397_labels
 mkdir datasets/labels/val_large_labels
-wget https://vision.princeton.edu/projects/2010/SUN/download/Partitions.zip -P datasets/labels/SUN397_labels
-unzip datasets/labels/SUN397_labels/Partitions.zip -d datasets/labels/SUN397_labels/
+wget https://vision.princeton.edu/projects/2010/SUN/download/Partitions.zip
+unzip Partitions.zip -d datasets/labels/SUN397_labels/
 
-wget http://data.csail.mit.edu/places/places365/filelist_places365-standard.tar -P datasets/labels/val_large_labels
-tar -xvf datasets/labels/val_large_labels/filelist_places365-standard.tar datasets/labels/val_large_labels/
+wget http://data.csail.mit.edu/places/places365/filelist_places365-standard.tar
+tar -xvf filelist_places365-standard.tar datasets/labels/val_large_labels/
 
 -echo "Cleaning data..."
 python data_clean.py
