@@ -33,9 +33,10 @@ len(to_remove)
 
 res_final = np.asarray(to_remove)
 res_final.shape
-res_final.sort(axis=0)
 
-np.savetxt("./data/labels/val_large_labels/Adi_val_list.txt", res_final,  fmt='%s')
+res_save = res_final[np.lexsort(res_final[:,].T)]
+
+np.savetxt("./data/labels/val_large_labels/Adi_val_list.txt", res_save,  fmt='%s')
 
 
 
