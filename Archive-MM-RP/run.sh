@@ -51,7 +51,7 @@ wget https://vision.princeton.edu/projects/2010/SUN/download/Partitions.zip
 unzip Partitions.zip -d datasets/labels/SUN397_labels/
 
 wget http://data.csail.mit.edu/places/places365/filelist_places365-standard.tar
-tar -xvf -C datasets/labels/val_large_labels/ filelist_places365-standard.tar
+tar -C datasets/labels/val_large_labels/ -zxvf filelist_places365-standard.tar
 
 -echo "Cleaning data..."
 python data_clean.py
