@@ -2,12 +2,12 @@
 
 By [Zhengyu Zhao](https://zhengyuzhao.github.io/).
 
-Radboud University (RU).
+Radboud University.
 
 ### Introduction
 
-This repository contains codes for Adi-Red approach described in the paper [From Volcano to Toyshop: Adaptive Discriminative Region
-Discovery for Scene Recognition](). This approach achieved state-of-the-art performance in terms of Top-1 classification accuracy on the scene benchmark [SUN397](https://groups.csail.mit.edu/vision/SUN/), by discovering discriminative local image patches efficiently. Neither training from scratch nor fine-tuning is involved in our approach.
+This repository contains codes for Adi-Red approach proposed in the paper [From Volcano to Toyshop: Adaptive Discriminative Region
+Discovery for Scene Recognition](). This approach achieved state-of-the-art performance in terms of Top-1 classification accuracy on the scene benchmark [SUN397](https://groups.csail.mit.edu/vision/SUN/). By deriving discriminative information directly from a CNN classifier, which was pre-trained using only image-level scene labels, Adi-Red can efficienly discover local discriminative image patches and integrate them with the global-scale image features in a multi-scale feature aggegation pipeline.
 
 **Note**
 
