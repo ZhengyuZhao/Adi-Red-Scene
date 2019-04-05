@@ -8,6 +8,8 @@ Radboud University.
 
 This repository contains the Python implementation of "Adi-Red" approach described in our paper [From Volcano to Toyshop: Adaptive Discriminative Region Discovery for Scene Recognition](https://dl.acm.org/citation.cfm?id=3240698).
 
+![diagram](https://github.com/ZhengyuZhao/Adaptive-Discriminative-Region-Discovery/blob/master/figures/diagram_textwidth.jpg)
+
 Adi-Red can derive discriminative information of a scene image directly from a CNN classifier, and achieved state-of-the-art scene recognition performance on [SUN397](https://groups.csail.mit.edu/vision/SUN/) in terms of Top-1 Acc, by adopting a multi-scale patch feature aggegation pipeline.
 
 ### Implementation
