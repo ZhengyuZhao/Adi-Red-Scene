@@ -1,7 +1,4 @@
-# File structure of Adi-Red-Scene
-
-
-
+# File structure
 
 # --- datasets
 #	  --- images
@@ -18,12 +15,6 @@
 #	  --- val_large_results
 
 
-# --- data_clean.py
-# --- Dis_Map_generation.py
-# --- Adaptive_region_selection.py
-# --- Multi_scale_feature_extraction.py
-# --- Feature_aggregation.py
-# --- SVM_classification.py
 
 
 mkdir datasets
@@ -52,6 +43,3 @@ unzip Partitions.zip -d datasets/labels/SUN397_labels/
 
 wget http://data.csail.mit.edu/places/places365/filelist_places365-standard.tar
 tar -C datasets/labels/val_large_labels/ -xvf filelist_places365-standard.tar
-
--echo "Cleaning data..."
-python data_clean.py
