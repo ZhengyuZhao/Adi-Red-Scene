@@ -1,7 +1,7 @@
 # Adaptive Discriminative Region Discovery for Scene Recognition
 
 This repository contains the Python implementation of "Adi-Red" approach described in our paper:  
-**[From Volcano to Toyshop: Adaptive Discriminative Region Discovery for Scene Recognition]**  
+**From Volcano to Toyshop: Adaptive Discriminative Region Discovery for Scene Recognition**  
 Zhengyu Zhao and Martha Larson, ACMMM 2018. [[Paper]](https://dl.acm.org/citation.cfm?id=3240698)
 <p align="center">
   <img src="https://github.com/ZhengyuZhao/Adaptive-Discriminative-Region-Discovery/blob/master/figures/diagram_textwidth.jpg" width='600'>
