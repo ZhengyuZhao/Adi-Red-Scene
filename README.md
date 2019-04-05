@@ -1,15 +1,13 @@
 # Adaptive Discriminative Region Discovery for Scene Recognition
 
-### Introduction
-
 This repository contains the Python implementation of "Adi-Red" approach described in our paper:  
-**[From Volcano to Toyshop: Adaptive Discriminative Region Discovery for Scene Recognition](https://dl.acm.org/citation.cfm?id=3240698),**  
-Zhengyu Zhao and Martha Larson, ACMMM 2018.
+**[From Volcano to Toyshop: Adaptive Discriminative Region Discovery for Scene Recognition]**  
+Zhengyu Zhao and Martha Larson, ACMMM 2018. [[Paper]](https://dl.acm.org/citation.cfm?id=3240698)
 <p align="center">
   <img src="https://github.com/ZhengyuZhao/Adaptive-Discriminative-Region-Discovery/blob/master/figures/diagram_textwidth.jpg" width='600'>
 </p>
 
-Adi-Red can derive discriminative information of a scene image directly from a CNN classifier, and achieved state-of-the-art scene recognition performance on [SUN397](https://groups.csail.mit.edu/vision/SUN/) in terms of Top-1 Acc, by adopting a multi-scale patch feature aggegation pipeline with ResNet50-based feature extractor.
+Adi-Red can derive discriminative information of the scene image directly from a CNN classifier, and achieved state-of-the-art scene recognition performance on [SUN397](https://groups.csail.mit.edu/vision/SUN/) in terms of Top-1 Acc., by adopting a multi-scale patch feature aggregation pipeline with ResNet50-based feature extractor.
 
 ### Implementation
 
@@ -17,7 +15,7 @@ Adi-Red can derive discriminative information of a scene image directly from a C
 
 This code implements:
  1. Generating discriminative map (Dis-Map) for scene images
- 2. Adptively selecting multi-scale discriminative patches
+ 2. Aadptively selecting multi-scale discriminative patches
  3. Aggregating CNN features from both local and global scale to obtain the final image representation
  4. Evaluating the scene image recognition on SUN397 and Places
  
@@ -59,19 +57,7 @@ To extract the intra-scale CNN features from image or image patch, please run:
 To evaluate the approach using SVM, please run:  
 ```python svm_classification.py -datasets 'SUN397' 'Places' -arches 'alexnet' 'resnet18' 'resnet50' -selection_type 'adi_red' -T2 150 -T3 100 -resolution 'ori_res' -scales 1 2 3 -pretrain_databases ['PL','PL','IN']```
 
-**Note**: The datasets (images and labels) are automatically downloaded into ```Archive-MM-RP/datasets``` and all the output results (Dis-Maps, patch locations, features and accuracy nubmers) are saved in ```Archive-MM-RP/results```
-
-
-### Citation
-
-If you use this approach in your research, please cite:
-
-	@article{Zhao2018,
-		author = {Zhengyu Zhao and Martha Larson},
-		title = {From Volcano to Toyshop: Adaptive Discriminative Region Discovery for Scene Recognition},
-		Booktitle={ACM International Conference on Multimedia},
-		Year={2018}
-	}
+**Note**: The datasets (images and labels) are automatically downloaded into ```Archive-MM-RP/datasets``` and all the output results (Dis-Maps, patch locations, features and accuracy numbers) are saved in ```Archive-MM-RP/results```
 
 
 ### Results
@@ -87,3 +73,14 @@ If you use this approach in your research, please cite:
 <p align="center">
 <img src="https://github.com/ZhengyuZhao/Adaptive-Discriminative-Region-Discovery/blob/master/figures/dis_patch_examples.png" width='800'>
 </p>
+
+
+### Citation
+
+If you use this approach in your research, please cite:  
+	@article{Zhao2018,
+		author = {Zhengyu Zhao and Martha Larson},
+		title = {From Volcano to Toyshop: Adaptive Discriminative Region Discovery for Scene Recognition},
+		Booktitle={ACM International Conference on Multimedia},
+		Year={2018}
+	}
