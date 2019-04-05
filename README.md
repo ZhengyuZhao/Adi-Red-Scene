@@ -6,12 +6,29 @@ Radboud University.
 
 ### Introduction
 
-This repository contains codes for Adi-Red approach proposed in the paper [From Volcano to Toyshop: Adaptive Discriminative Region
-Discovery for Scene Recognition](https://dl.acm.org/citation.cfm?id=3240698). This approach can derive discriminative information directly from a CNN classifier, and achieved state-of-the-art scene recognition performance in terms of Top-1 Acc. on [SUN397](https://groups.csail.mit.edu/vision/SUN/) by adopting a multi-scale patch feature aggegation pipeline.
+This repository contains the Python implementation of "Adi-Red" approach described in our paper [From Volcano to Toyshop: Adaptive Discriminative Region Discovery for Scene Recognition](https://dl.acm.org/citation.cfm?id=3240698).
 
-**Note**
+Adi-Red can derive discriminative information of a scene image directly from a CNN classifier, and achieved state-of-the-art scene recognition performance on [SUN397](https://groups.csail.mit.edu/vision/SUN/) in terms of Top-1 Acc, by adopting a multi-scale patch feature aggegation pipeline.
 
-The main code file titled "DisMap_generation_per_image.py" is written with PyTorch in python 3.6, and another file titled "Discover_patches_per_image.m" is written with MATLAB. 
+### Implementation
+
+#### Overview
+
+This code implements:
+ 1. Generating discriminative map (Dis-Map) for scene images
+ 2. Adptively selecting multi-scale discriminative patches
+ 3. Aggregating CNN features from both local and global scale to obtain the final image representation
+ 4. Evaluating the scene image recognition on SUN397 and Places
+ 
+#### Prerequisites
+
+In order to run the code, you need:
+
+1. Python3 (tested with Python 3.7.2 on Ubuntu 16.04.6 LTS)
+1. PyTorch deep learning framework (tested with version 1.0.1)
+1. All the rest (data + networks) will be automatically downloaded with our scripts
+
+
 
 ### Citation
 
