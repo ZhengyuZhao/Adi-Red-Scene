@@ -1,5 +1,4 @@
 # File structure
-
 # --- datasets
 #	  --- images
 #		  --- SUN397
@@ -7,15 +6,11 @@
 #	  --- labels
 #	  	--- SUN397_labels
 #	  	--- val_large_labels
-
 # --- models
 #   --- __init__.py  
 # --- results
 #	  --- SUN397_results
 #	  --- val_large_results
-
-
-
 
 mkdir datasets
 mkdir results
