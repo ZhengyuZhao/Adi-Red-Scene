@@ -1,20 +1,18 @@
 # Adaptive Discriminative Region Discovery for Scene Recognition
 
-By [Zhengyu Zhao](https://zhengyuzhao.github.io/).
-
-Radboud University.
-
 ### Introduction
 
 This repository contains the Python implementation of "Adi-Red" approach described in our paper:
+
 **[From Volcano to Toyshop: Adaptive Discriminative Region Discovery for Scene Recognition](https://dl.acm.org/citation.cfm?id=3240698),**
+
 Zhengyu Zhao and Martha Larson, ACMMM 2018.
 <p align="center">
   <img src="https://github.com/ZhengyuZhao/Adaptive-Discriminative-Region-Discovery/blob/master/figures/diagram_textwidth.jpg" width='600'>
 </p>
 
 
-Adi-Red can derive discriminative information of a scene image directly from a CNN classifier, and achieved state-of-the-art scene recognition performance on [SUN397](https://groups.csail.mit.edu/vision/SUN/) in terms of Top-1 Acc, by adopting a multi-scale patch feature aggegation pipeline.
+Adi-Red can derive discriminative information of a scene image directly from a CNN classifier, and achieved state-of-the-art scene recognition performance on [SUN397](https://groups.csail.mit.edu/vision/SUN/) in terms of Top-1 Acc, by adopting a multi-scale patch feature aggegation pipeline with ResNet50-based feature extractor.
 
 ### Implementation
 
@@ -35,7 +33,56 @@ In order to run the code, you need:
 1. All the rest (data + networks) will be automatically downloaded with our scripts
 
 
+#### Usage
 
+Navigate to the root folder of the code.
+
+```cd Archive-MM-RP```
+For detailed explanation of the optional parameters of each python script run:
+```
+python [name_of_script].py -h
+```
+##### Preparing the data
+
+##### Generating Dis-Map
+
+To generate the discriminative map (Dis-Map) for the scene image, please run:
+```python dis_map_generation.py -batch_size 256 -datasets 'Places' 'SUN397' -gpu 1```
+
+##### Adaptive region selection
+
+To select the discriminative regions based on the Dis-Map, please run:
+```python adaptive_region_selection.py -datasets 'Places' 'SUN397' -window_params ['3','1']```
+
+##### CNN feature extraction
+
+To extract the intra-scale CNN features from image or image patch, please run:
+```python intra_scale_feature_extraction.py -batch_size_base 32 gpu -1 -datasets 'SUN397' 'Places' -arches 'alexnet' 'resnet18' 'resnet50' -selection_type 'adi_red' -thresholds 100 150 -resolution 'ori_res' -scales 1 2 3 -pretrain_databases ['PL','PL','IN']```
+
+##### SVM classification
+
+To evaluate the approach using SVM, please run:
+```python svm_classification.py -datasets 'SUN397' 'Places' -arches 'alexnet' 'resnet18' 'resnet50' -selection_type 'adi_red' -T2 150 -T3 100 -resolution 'ori_res' -scales 1 2 3 -pretrain_databases ['PL','PL','IN']```
+
+
+
+**Note**: The datasets (images and labels) are automatically downloaded into ```Archive-MM-RP/datasets``` and all the output results (Dis-Maps, patch locations, features and accuracy nubmers) are saved in ```Archive-MM-RP/results```
+
+**Note**: Adjusted (lower) learning rate is set to achieve similar performance as with [MatConvNet](https://github.com/filipradenovic/cnnimageretrieval) and [PyTorch-0.3.0](https://github.com/filipradenovic/cnnimageretrieval-pytorch/tree/v1.0) implementation of the training.
+
+### Testing
+
+Example testing script is located in ```YOUR_CIRTORCH_ROOT/cirtorch/examples/test.py```
+```
+python3 -m cirtorch.examples.test [-h] (--network-path NETWORK | --network-offtheshelf NETWORK)
+               [--datasets DATASETS] [--image-size N]
+               [--multiscale MULTISCALE] [--whitening WHITENING] [--gpu-id N]
+```
+
+For detailed explanation of the options run:
+```
+python3 -m cirtorch.examples.test -h
+```
 ### Citation
 
 If you use this approach in your research, please cite:
