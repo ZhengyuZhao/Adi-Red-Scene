@@ -32,6 +32,8 @@ In order to run the code, you need:
 2. Run the bash file ```bash run.sh``` to start the experiments.  
 3. Get detailed explanation of the optional parameters of the python scripts```python [name_of_script].py -h```
 
+**Note**: The datasets (images and labels) are automatically downloaded into ```Archive-MM-RP/datasets``` and all the intermediate and final results are saved in ```Archive-MM-RP/results```
+
 ### Process
 
 The scripts that are called in ```run.sh``` are described as follows: 
@@ -62,8 +64,6 @@ Extract the intra-scale CNN features from image or image patch, please run:
 
 Evaluate the approaches using SVM, please run:  
 ```python svm_classification.py -datasets 'SUN397' 'Places' -arches 'alexnet' 'resnet18' 'resnet50' -selection_type 'adi_red' -T2 150 -T3 100 -resolution 'ori_res' -scales 1 2 3 -pretrain_databases ['PL','PL','IN']```
-
-**Note**: The datasets (images and labels) are automatically downloaded into ```Archive-MM-RP/datasets``` and all the intermediate and final results are saved in ```Archive-MM-RP/results```
 
 ## Results
 
