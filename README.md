@@ -29,36 +29,41 @@ In order to run the code, you need:
 ### Usage
 
 1. Navigate to the root folder of the code.```cd Archive-MM-RP```  
-2. Run the bash file ```bash prepare.sh``` to construct the file structure and download the datasets.  
+2. Run the bash file ```bash run.sh``` to start the experiments.  
 3. Get detailed explanation of the optional parameters of the python scripts```python [name_of_script].py -h```
 
-### Splits assignment
+### Process
 
-To assign the data into required train/test splits, please run:  
+The scripts that are called in ```run.sh``` are described as follows: 
+
+#### Data preparation
+
+Download the datasets and assign the data into required train/test splits:  
+
+```prepare.sh ```  
 ```python data_clean.py```
 
-### Dis-Map generation
+#### Dis-Map generation
 
-To generate the discriminative map (Dis-Map) for the scene image, please run:  
+Generate the discriminative map (Dis-Map) for the scene image:  
 ```python dis_map_generation.py -batch_size 256 -datasets 'Places' 'SUN397' -gpu 1```
 
-### Adaptive region selection
+#### Adaptive region selection
 
-To select the discriminative regions based on the Dis-Map, please run:  
+Select the discriminative regions based on the Dis-Map, please run:  
 ```python adaptive_region_selection.py -datasets 'Places' 'SUN397' -window_params ['3','1']```
 
-### CNN feature extraction
+#### CNN feature extraction
 
-To extract the intra-scale CNN features from image or image patch, please run:  
+Extract the intra-scale CNN features from image or image patch, please run:  
 ```python intra_scale_feature_extraction.py -batch_size_base 32 gpu -1 -datasets 'SUN397' 'Places' -arches 'alexnet' 'resnet18' 'resnet50' -selection_type 'adi_red' -thresholds 100 150 -resolution 'ori_res' -scales 1 2 3 -pretrain_databases ['PL','PL','IN']```
 
-### SVM classification
+#### SVM classification
 
-To evaluate the approach using SVM, please run:  
+Evaluate the approaches using SVM, please run:  
 ```python svm_classification.py -datasets 'SUN397' 'Places' -arches 'alexnet' 'resnet18' 'resnet50' -selection_type 'adi_red' -T2 150 -T3 100 -resolution 'ori_res' -scales 1 2 3 -pretrain_databases ['PL','PL','IN']```
 
-**Note**: The datasets (images and labels) are automatically downloaded into ```Archive-MM-RP/datasets``` and all the output results (Dis-Maps, patch locations, features and accuracy numbers) are saved in ```Archive-MM-RP/results```
-
+**Note**: The datasets (images and labels) are automatically downloaded into ```Archive-MM-RP/datasets``` and all the intermediate and final results are saved in ```Archive-MM-RP/results```
 
 ## Results
 
