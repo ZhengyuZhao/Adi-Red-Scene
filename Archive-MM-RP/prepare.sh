@@ -4,8 +4,10 @@ mkdir models
 
 mkdir datasets/images
 mkdir datasets/labels
-mkdir results/SUN397_results
-mkdir results/val_large_results
+mkdir results/intermediate
+mkdir results/intermediate/Places
+mkdir results/intermediate/SUN397
+mkdir results/final
 touch models/__init__.py
 
 echo "Downloading datasets..."
