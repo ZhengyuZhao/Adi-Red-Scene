@@ -144,7 +144,7 @@ for i in range(0,len(lm_2_train),50):
     print(i)
     avg_dis_class[i//50]=np.mean(avg_dis[i:i+50])
     
-label_path='./datasets/Places/labels/'
+label_path='./datasets/labels/Places/'
 class_sort_descend=np.argsort(avg_dis_class)[::-1]
 
 with open(label_path+'categories_places365.txt', 'r') as f:
