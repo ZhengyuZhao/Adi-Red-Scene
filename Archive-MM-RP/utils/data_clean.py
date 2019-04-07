@@ -2,9 +2,8 @@ import pandas as pd
 import numpy as np
 from tqdm import tqdm
 
-
 # generate train-test split for Places365-Standard validation set 
-pla_data = pd.read_csv('./data/labels/val_large_labels/places365_val.txt', header=None, sep=' ')
+pla_data = pd.read_csv('./datasets/Places/labels/places365_val.txt', header=None, sep=' ')
 pla_np = pla_data.values
 
 count = 0
@@ -20,7 +19,7 @@ for i in range(365):
     whole_train.append(temp)
 
 res_train = np.asarray(whole_train).reshape(-1, 2)
-p.savetxt("./data/labels/val_large_labels/Places_image_list_train.txt", res_train,  fmt='%s')
+np.savetxt("./datasets/Places/labels/image_list_train.txt", res_train,  fmt='%s')
 
 res_test = np.asarray(pla_np)
 to_remove = []
@@ -33,19 +32,18 @@ len(to_remove)
 
 res_final = np.asarray(to_remove)
 res_final.shape
+res_final = res_final[np.lexsort(res_final[:,].T)]
 
-
-res_save = res_final[np.lexsort(res_final[:,].T)]
-np.savetxt("./data/labels/val_large_labels/Adi_val_list.txt", res_save,  fmt='%s')
+np.savetxt("./datasets/Places/labels/image_list_test.txt", res_final,  fmt='%s')
 
 
 
 #Find the overlapping classes between SUN397 and Places. Then following the statement in our
 #paper, for the training images of SUN397 which have ground truth overlapped with Places,
 #we used the ground truth for generating the Dis-Map.
-with open('./data/labels/val_large_labels/'+'categories_places365.txt', 'r') as f:
+with open('./datasets/Places/labels/'+'categories_places365.txt', 'r') as f:
           Places_class_labels = f.readlines()          
-with open('./data/labels/SUN397_labels/'+'ClassName.txt', 'r') as f:
+with open('./datasets/SUN397/labels/'+'ClassName.txt', 'r') as f:
           SUN_class_labels = f.readlines()
 class_overlap=-np.ones(397,dtype=int)
 for i, SUN_class_name in enumerate(SUN_class_labels):
@@ -54,24 +52,42 @@ for i, SUN_class_name in enumerate(SUN_class_labels):
             class_overlap[i]=Places_class_name.split(' ')[1]
             break
 class_overlap[143]=130 
-np.save('./data/labels/SUN397_labels/'+'Class_overlap.npy',class_overlap)
+np.save('./datasets/SUN397/labels/'+'Class_overlap.npy',class_overlap)
 
 
 #Merge the 10 train-test splits into one list to avoid repeating
 #operation on the same image in the following steps.
 image_list_all=[]
-for split in ['01','02','03','04','05','06','07','08','09','10']:
-  with open('./data/labels/SUN397_labels/Training_'+split+'.txt', 'r') as f1:
+splits=['01','02','03','04','05','06','07','08','09','10']
+for split in splits:
+  with open('./datasets/SUN397/labels/Training_'+split+'.txt', 'r') as f1:
           image_list_all = image_list_all+f1.readlines()
-  with open('./data/labels/SUN397_labels/Testing_'+split+'.txt', 'r') as f2:
+  with open('./datasets/SUN397/labels/Testing_'+split+'.txt', 'r') as f2:
           image_list_all = image_list_all+f2.readlines()
 
 f1.close()
 f2.close()  
 image_list_all=list(dict.fromkeys(image_list_all))
-with open('./data/labels/SUN397_labels/image_list_all.txt', 'w') as f3:
+with open('./datasets/SUN397/labels/image_list_all.txt', 'w') as f3:
     for item in image_list_all:
         f3.write("%s" % item)
 f3.close()
 
+modes=['train','test']    
+for split in splits:
+    for mode in modes:
+        if mode =='train':
+             with open('./datasets/SUN397/labels/Training_'+split+'.txt', 'r') as f:
+                 image_list_split = f.readlines()
+        if mode =='test':
+             with open('./datasets/SUN397/labels/Testing_'+split+'.txt', 'r') as f:
+                 image_list_split = f.readlines()         
+        split_index=[] 
+        for j in range(len(image_list_split)):
+            print(j)
+            for i in range(len(image_list_all)) :                           
+                 if image_list_all[i]==image_list_split[j]:
+                     split_index.append(i)
+                     break
+        np.save('./datasets/SUN397/labels/'+'index_'+mode+'_'+split,split_index)
 
