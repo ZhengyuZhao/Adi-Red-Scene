@@ -1,6 +1,5 @@
 mkdir datasets
 mkdir results
-mkdir models
 
 mkdir datasets/SUN397
 mkdir datasets/Places
@@ -12,7 +11,6 @@ mkdir results/intermediate
 mkdir results/intermediate/Places
 mkdir results/intermediate/SUN397
 mkdir results/final
-touch models/__init__.py
 
 echo "Downloading datasets..."
 wget http://vision.princeton.edu/projects/2010/SUN/SUN397.tar.gz
