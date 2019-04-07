@@ -1,5 +1,7 @@
 bash ./utils/prepare.sh
 
+python ./examples/demo.py
+
 python ./utils/data_clean.py
 
 python ./utils/dis_map_generation.py -batch_size 256 -datasets 'Places' -gpu 1
