@@ -86,9 +86,11 @@ Evaluate the approaches using SVM, please run:
 
 If you use this approach in your research, please cite:
 
-	@article{Zhao2018,
-		author = {Zhengyu Zhao and Martha Larson},
-		title = {From Volcano to Toyshop: Adaptive Discriminative Region Discovery for Scene Recognition},
-		Booktitle={ACM International Conference on Multimedia},
-		Year={2018}
+	@inproceedings{zhao2018volcano,
+		  title={From Volcano to Toyshop: Adaptive Discriminative Region Discovery for Scene Recognition},
+		  author={Zhao, Zhengyu and Larson, Martha},
+		  booktitle={2018 ACM Multimedia Conference on Multimedia Conference},
+		  pages={1760--1768},
+		  year={2018},
+		  organization={ACM}
 	}
