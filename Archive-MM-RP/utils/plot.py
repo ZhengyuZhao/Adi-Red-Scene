@@ -10,15 +10,15 @@ T3='100'
 
 
 result_path='./results/'+'intermediate/'+'SUN397/'
-r_1_c_1=1
-r_2_c_1=2
-r_3_c_1=3
-r_1_c_2=4
-r_2_c_2=5
-r_3_c_2=6
-r_1_c_3=7
-r_2_c_3=8 
-r_3_c_3=9   
+r_1_c_1=0
+r_2_c_1=0
+r_3_c_1=0
+r_1_c_2=0
+r_2_c_2=0
+r_3_c_2=0
+r_1_c_3=0
+r_2_c_3=0 
+r_3_c_3=0   
 
 fig = plt.figure()
 ax = fig.add_subplot(111, frame_on=False) 
@@ -39,12 +39,12 @@ fig.clf()
 
 #Table 2
 result_path='./results/'+'intermediate/'+'SUN397/'
-r_1_c_1=1
-r_1_c_2=2
-r_2_c_1=3
-r_2_c_2=4
-r_3_c_1=5
-r_3_c_2=6
+r_1_c_1=0
+r_1_c_2=0
+r_2_c_1=0
+r_2_c_2=0
+r_3_c_1=0
+r_3_c_2=0
 fig = plt.figure()
 ax = fig.add_subplot(111, frame_on=False) 
 plt.title('Table 2',fontsize=30,fontweight='semibold') 
@@ -64,12 +64,12 @@ fig.clf()
 
 #Table 4
 result_path='./results/'+'intermediate/'+'Places/'
-r_1=1  
-r_2=2
-r_3=3
-r_4=4
-r_5=5
-r_6=6
+r_1=0  
+r_2=0
+r_3=0
+r_4=0
+r_5=0
+r_6=0
 
 fig = plt.figure()
 ax = fig.add_subplot(111, frame_on=False) 
@@ -171,5 +171,28 @@ fig.savefig(final_path+'Figure4.png', bbox_inches='tight')
 fig.clf()
 
 
+#Table resolution
 
+result_path='./results/'+'intermediate/'+'Places/'
+r_1_c_1=0
+r_2_c_1=0    
+r_3_c_1=0    
+r_1_c_2=0
+r_2_c_2=0   
+r_3_c_2=0
+
+fig = plt.figure()
+ax = fig.add_subplot(111, frame_on=False) 
+plt.title('Table res',fontsize=30,fontweight='semibold') 
+ax.xaxis.set_visible(False) 
+ax.yaxis.set_visible(False)
+cols = ('# of scales\n(global+local)', 'Pre-training\ndataset', 'Low\nresolution', 'Adi-Red')
+#rows = ['1+1','1+1','1+2']
+cellText = [['1+1','PL/-/IN',r_1_c_1,r_1_c_2], ['1+1','PL/PL/-',r_2_c_1,r_2_c_2], ['1+2',' PL/PL/IN',r_3_c_1,r_3_c_2]]
+the_table=ax.table(cellText=cellText, cellLoc='center', colLabels=cols,colLoc='center',loc='upper center')
+the_table.auto_set_font_size(False)
+the_table.set_fontsize(26)
+the_table.scale(5, 5)
+fig.savefig(final_path+'Table_res.png', bbox_inches='tight')
+fig.clf()
 
