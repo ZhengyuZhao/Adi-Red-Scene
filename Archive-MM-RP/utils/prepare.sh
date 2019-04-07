@@ -20,6 +20,10 @@ echo "Decompressing datasets..."
 tar -C datasets/SUN397/images/ -xvf SUN397.tar.gz
 tar -C datasets/Places/images/ -xvf val_large.tar
 
+echo "Deleting compressed data..."
+rm datasets/SUN397/images/SUN397.tar.gz
+rm datasets/Places/images/val_large.tar
+ 
 
 echo "Downloading labels..."
 wget https://vision.princeton.edu/projects/2010/SUN/download/Partitions.zip
