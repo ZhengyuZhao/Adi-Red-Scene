@@ -68,7 +68,8 @@ Evaluate the approaches using SVM, please run:
 
 ## Results
 
-1. Top-1 accuracy on SUN397:  
+1. Top-1 accuracy on SUN397: 
+
 	Networks|Baseline|Adi-Red
 	:---:|:---:|:---:
 	AlexNet|53.87%|61.51%
