@@ -17,7 +17,7 @@ This code implements:
  1. Generating discriminative map (Dis-Map) for scene images
  2. Aadptively selecting multi-scale discriminative patches
  3. Aggregating CNN features from both local and global scale to obtain the final image representation
- 4. Evaluating the scene image recognition on SUN397 and Places
+ 4. Evaluating the approach to scene image recognition on SUN397 and Places
  
 ### Prerequisites
 
@@ -28,15 +28,16 @@ In order to run the code, you need:
 
 ### Usage
 
-1. Navigate to the root folder of the code.```cd Archive-MM-RP```  
-2. Run the bash file ```bash run.sh``` to start the experiments.  
-3. Get detailed explanation of the optional parameters of the python scripts```python [name_of_script].py -h```
+1. Navigate to the root folder.```cd Archive-MM-RP``` 
+2. An example test that covers the key elements of Adi-Red can be run with ```python example/demo.py -h```  
+3. To replicate the whole experiments, please run the bash file ```bash run.sh``` .  
+4. Get detailed explanation of the optional parameters of the python scripts ```python [name_of_script].py -h```
 
 **Note**: The datasets (images and labels) are automatically downloaded into ```Archive-MM-RP/datasets``` and all the intermediate and final results are saved in ```Archive-MM-RP/results```
 
 ### Process
 
-The scripts that are called in ```run.sh``` are described as follows: 
+The scripts that are exacuted in ```run.sh``` are described as follows: 
 
 #### Data preparation
 
@@ -70,9 +71,9 @@ Evaluate the approaches using SVM, please run:
 1. Top-1 accuracy on SUN397:  
 	Networks|Baseline|Adi-Red
 	:---:|:---:|:---:
-	AlexNet|%|%
-	ResNet-18|%|%
-	ResNet-50|%|%
+	AlexNet|53.87%|61.51%
+	ResNet-18|66.99%|70.88%
+	ResNet-50|71.14%|73.32%
 	
 2. Examples of discriminative patches (in finer local scale) discovered by Adi-Red on Places365-Standard validation set. Different levels of discriminative information such as pattern, object and contextual interaction can be captured.
 <p align="center">
