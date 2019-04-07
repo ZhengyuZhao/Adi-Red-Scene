@@ -83,7 +83,6 @@ for dataset in datasets:
                   class_labels = f.readlines() 
         with open(label_path+'image_list_all.txt', 'r') as f:
                   image_list_all = f.readlines()
-
         for a in range(0,len(class_labels)) : 
            class_labels[a]=  class_labels[a][:-1]   
         CAM_map_all_train=[]
