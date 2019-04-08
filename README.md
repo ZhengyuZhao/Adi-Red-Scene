@@ -29,7 +29,7 @@ In order to run the code, you need:
 
 To install PyTorch and CUDA packages, please refer to their official websites for compatible versions with your system.
 
-Alternatively, the required environment can be automatically set up by using [ReproZip](https://www.reprozip.org/). The .rpz file can be downloaded [here](https://www.reprozip.org/), and installed following the instructions below:  
+Alternatively, the required environment can be automatically set up by using [ReproZip](https://www.reprozip.org/). The .rpz file can be downloaded [here](https://surfdrive.surf.nl/files/index.php/s/GQ14EzWbWFh01Ks/download), and installed following the instructions below:  
 ```reprounzip docker setup Adi-Red-Scene.rpz Adi-Red-Experiment```  
 ```reprounzip docker run Adi-Red-Experiment```
 
