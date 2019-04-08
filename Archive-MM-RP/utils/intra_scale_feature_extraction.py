@@ -30,26 +30,6 @@ resolution=args.resolution
 selection_types=args.selection_types
 pretrain_databases=args.pretrain_databases
 
-# dataset='Places' or 'SUN397'
-# arch='alexnet' or 'resnet18' or 'resnet50'
-# batch_size_base=2
-# pretrain_databases=['PL','PL','IN']
-
-# selection_type='adi_red'  'random','dense'
-# resolution='adi_red' or 'low'
-# thresholds=['0','50','100','150','200','225']
-
-
-
-#Table1: dataset='SUN397' arch='alexnet' selection_type='adi_red' or 'random' or 'dense' thresholds=['100','150'] resolution='adi_red'
-#
-#Table2 and Table 3: dataset='SUN397' arch='resnet18' or 'resnet50' selection_type='adi_red' thresholds=['100','150'] resolution='adi_red'
-#
-#Figure 3 and Figure 4: dataset='Places' arch='alexnet' thresholds=['0','50','100','150','200','225'] resolution='adi_red'
-#
-#Table 4: dataset='Places' arch='alexnet' pretrain_databases=['PL','IN','PL'] scales=['2','3'] resolution='adi_red'
-#
-#additional: dataset='Places' arch='alexnet' thresholds=['100','150'] resolution='low'
 
 
 if  args.gpu==1:   
