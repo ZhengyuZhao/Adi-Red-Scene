@@ -148,7 +148,7 @@ for dataset in datasets:
                             CAM_map_all.append(CAM_map)
                     if image_list_file=='image_list_test.txt':       
                         logits=linear_layer(nn.AvgPool2d(kernel_size=14)(conv_maps).view(-1, 512))
-                        h_xs=F.softmax(logits).cpu().detach()
+                        h_xs=F.softmax(logits,dim=1).cpu().detach()
                         for t in range(0,batch_size):
                             probs, idx = (h_xs[t]).sort(0, True)
                             CAM_map= returnCAM(conv_maps_np[t], weight_softmax,idx[0])
