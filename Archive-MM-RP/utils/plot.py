@@ -1,11 +1,13 @@
 #matplotlib inline
 import numpy as np
+import matplotlib
+matplotlib.use('agg')
 import matplotlib.pyplot as plt
 final_path='./results/final/'
 T2='150'
 T3='100'
 
-
+plt.ioff()
 #Table 1 for SUN397
 
 
