@@ -15,7 +15,7 @@ Adi-Red can derive discriminative information of the scene image directly from a
 
 This code implements:
  1. Generating discriminative map (Dis-Map) for scene images
- 2. Aadptively selecting multi-scale discriminative patches
+ 2. Adaptively selecting multi-scale discriminative patches
  3. Aggregating CNN features from both local and global scale to obtain the final image representation
  4. Evaluating the approach to scene image recognition on SUN397 and Places
  
@@ -37,14 +37,14 @@ Alternatively, the required environment can be automatically set up by using [Re
 
 1. Navigate to the root folder.```cd Archive-MM-RP``` 
 2. An example test that covers the key elements of Adi-Red can be run with ```python example/demo.py```  
-3. To replicate the whole experiments, please run the bash file ```bash run.sh``` .  
+3. To replicate the whole experiments, please run the shell script ```bash run.sh``` .  
 4. Get detailed explanation of the optional parameters of the python scripts ```python [name_of_script].py -h```
 
-**Note**: The datasets (images and labels) are automatically downloaded into ```Archive-MM-RP/datasets``` and all the intermediate and final results are saved in ```Archive-MM-RP/results```
+**Note**: The datasets (images and labels) are automatically downloaded into ```Archive-MM-RP/datasets```. All the intermediate (e.g., features) outputs are saved in ```Archive-MM-RP/results/intermediate```, and the final results (automatically generated plots and tables) are saved in ```Archive-MM-RP/results/final```.
 
 ### Process
 
-The scripts that are exacuted in ```run.sh``` are described as follows: 
+The scripts that are executed in ```run.sh``` are described as follows: 
 
 #### Data preparation
 
