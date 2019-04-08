@@ -12,9 +12,9 @@ parser.add_argument("-arches", "--arches", nargs='+',help="Architecture of the C
 parser.add_argument("-scales", "--scales", nargs='+',help="The total scales(up to 3), in which the features are extracted. ", default=['1','2','3'])
 parser.add_argument("-T2", "--T2",help="The threshold used to select the number of discriminative patches in the coaser local scale", default='')
 parser.add_argument("-T3", "--T3",help="The threshold used to select the number of discriminative patches in the finer local scale", default='')
-parser.add_argument("-resolution", "--resolution", help="Whether use the original input image resolution as Adi-Red or lower ", default="ori_res")
-parser.add_argument("-selection_types", "--selection_types", nargs='+',help="The type of method (Adi-Red, dense or random) used for patch selection ", default=['adi_red'])
-parser.add_argument("-pretrain_databases", "--pretrain_databases", nargs='+', help="The pre-trained network (trained with either Places(PL) data set or ImageNet(IN)) used for feature extraction", default=['PL','PL','IN'])
+parser.add_argument("-resolution", "--resolution", help="specify the mode of input image resolution ('ori_res' or 'low_res')", default="ori_res")
+parser.add_argument("-selection_types", "--selection_types", nargs='+',help="The type of method (adi_red, dense or random) used for patch selection ", default=['adi_red'])
+parser.add_argument("-pretrain_databases", "--pretrain_databases", nargs='+', help="Specify the pre-training data (Places(PL) or ImageNet(IN)) of the pre-trained CNN feature extractor", default=['PL','PL','IN'])
 args = parser.parse_args()
 
 datasets=args.datasets
@@ -28,20 +28,17 @@ selection_types=args.selection_types
 pretrain_databases=args.pretrain_databases
 
 
-
+#L2-normalisation
 def feature_post_processing(features_scale):
-#     idx=np.where(np.any(features_scale,axis=0)==False)
-#     features_scale=np.delete(features_scale, idx, axis=1)
     features_scale=Normalizer().transform(features_scale)
     return features_scale
+#scaling to each element of the features into the range of [0,1]
 def scaling(train_fea):
     idx=np.where(np.any(train_fea,axis=0)==False)
     train_fea=np.delete(train_fea, idx, axis=1)
     f_max=np.amax(train_fea, axis=0)
     f_min=np.amin(train_fea, axis=0)
     return f_max,f_min,idx,train_fea
-#    scale_fea=(train_fea-f_min)/(f_max-f_min)
-#    test_fea=(test_fea-f_min)/(f_max-f_min)
 
 for dataset in datasets:
     result_path = './results/intermediate/'+dataset+'/'
@@ -120,7 +117,7 @@ for dataset in datasets:
                 features_test=np.delete(features_test, idx, axis=1)
                 features_train=(features_train-f_min)/(f_max-f_min)
                 features_test=(features_test-f_min)/(f_max-f_min)
-                labels=[]
+                labels=[]          
                 for i in range(50*class_num):
                     labels.append(i//50)
                 model = svm.LinearSVC(C=0.02,dual=False,tol=0.01,fit_intercept=False)
@@ -130,6 +127,7 @@ for dataset in datasets:
                 acc_sum=acc+acc_sum
             acc_avg=acc_sum/len(splits)
             print(acc_avg)
+            #save the accuracy on Places or the average accuracy over 10 spilts on SUN397
             if scales==['1']:
                 np.save(result_path+'acc_'+con+'_'+arch+'_'+pretrain_databases[0]+'.npy',acc_avg)    
             if scales==['1','2']:
