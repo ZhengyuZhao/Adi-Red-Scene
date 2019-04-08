@@ -14,7 +14,7 @@ parser.add_argument("-T2", "--T2",help="The threshold used to select the number 
 parser.add_argument("-T3", "--T3",help="The threshold used to select the number of discriminative patches in the finer local scale", default='')
 parser.add_argument("-resolution", "--resolution", help="Whether use the original input image resolution as Adi-Red or lower ", default="ori_res")
 parser.add_argument("-selection_types", "--selection_types", nargs='+',help="The type of method (Adi-Red, dense or random) used for patch selection ", default=['adi_red'])
-parser.add_argument("-pretrain_databases", "--pretrain_databases", help="The pre-trained network (trained with either Places(PL) data set or ImageNet(IN)) used for feature extraction", default=['PL','PL','IN'])
+parser.add_argument("-pretrain_databases", "--pretrain_databases", nargs='+', help="The pre-trained network (trained with either Places(PL) data set or ImageNet(IN)) used for feature extraction", default=['PL','PL','IN'])
 args = parser.parse_args()
 
 datasets=args.datasets
