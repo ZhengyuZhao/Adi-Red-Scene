@@ -74,6 +74,8 @@ with open(label_path_SUN397+'image_list_all.txt', 'w') as f3:
         f3.write("%s" % item)
 f3.close()
 
+
+#save the index of the images of train/test splits in the whole list
 modes=['train','test']    
 for split in tqdm(splits):
     for mode in modes:
