@@ -2,7 +2,7 @@ import numpy as np
 from tqdm import tqdm
 import argparse
 
-parser = argparse.ArgumentParser(description = "Adaptive region selection")
+parser = argparse.ArgumentParser(description = "Adaptive region selection based on the values of the Dis-Map")
 parser.add_argument("-datasets", "--datasets", nargs='+',help="Specify the dataset", default=['Places','SUN397'])
 parser.add_argument("-window_params", "--window_params",nargs='+',help="Specify the size and the stride for the sliding window to select discriminative patches", default=['3','1'])
 
