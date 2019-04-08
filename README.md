@@ -22,12 +22,12 @@ This code implements:
 ### Prerequisites
 
 In order to run the code, you need:  
-1. Python3 (tested with Python 3.7.2 on Ubuntu 16.04.6 LTS)
-2. PyTorch deep learning framework (tested with version 1.0.1)
-3. CUDA driver and corresponding cuDNN package if using GPU
-
-To install the required dependencies for Python3, please run:  
+1. Python3 (tested with Python 3.7.2 on Ubuntu 16.04.6 LTS), required libraries can be installed by running:  
 ```pip3 install -r requirements.txt```
+2. PyTorch deep learning framework (tested with version 1.0.1) and torchvision (tested with version 0.2.2)
+3. CUDA driver and cuDNN package if using GPU (tested using Nvidia P100 with CUDA 8.0 and cuDNN 7.1.2)
+
+To install PyTorch and CUDA packages, please refer to their official websites for compatible versions with your system.
 
 Alternatively, the required environment can be automatically set up by using [ReproZip](https://www.reprozip.org/). The .rpz file can be downloaded [here](https://www.reprozip.org/), and installed following the instructions below:  
 ```reprounzip docker setup Adi-Red-Scene.rpz Adi-Red-Experiment```  
