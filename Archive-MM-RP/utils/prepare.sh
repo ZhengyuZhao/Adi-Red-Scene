@@ -14,13 +14,12 @@ wget http://data.csail.mit.edu/places/places365/val_large.tar
 
 echo "Decompressing datasets..."
 tar -C datasets/images/ -xvf SUN397.tar.gz
+rm SUN397.tar.gz
 tar -C datasets/images/ -xvf val_large.tar
+rm val_large.tar
 mv -T datasets/images/val_large datasets/images/Places
 
-echo "Deleting compressed data..."
-rm SUN397.tar.gz
-rm val_large.tar
- 
+
 mkdir datasets/labels/SUN397/
 mkdir datasets/labels/Places/
 
