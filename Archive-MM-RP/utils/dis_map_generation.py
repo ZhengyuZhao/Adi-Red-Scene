@@ -76,8 +76,8 @@ conv_model=conv_model.to(device)
 
 for dataset in datasets:
     if dataset=='SUN397':
-        image_path='./datasets/SUN397/images/'
-        label_path='./datasets/SUN397/labels/'
+        image_path='./datasets/images/SUN397/'
+        label_path='./datasets/labels/SUN397/'
         result_path = './results/intermediate/SUN397/'
         with open(label_path+'ClassName.txt', 'r') as f:
                   class_labels = f.readlines() 
@@ -120,8 +120,8 @@ for dataset in datasets:
         np.save(result_path+'CAM_map_all_train.npy',CAM_map_all_train)             
         np.save(result_path+'CAM_map_all_test.npy',CAM_map_all_test)
     if dataset=='Places':
-        image_path='./datasets/Places/images/'
-        label_path='./datasets/Places/labels/'
+        image_path='./datasets/images/Places/'
+        label_path='./datasets/labels/Places/'
         result_path = './results/intermediate/Places/' 
         for image_list_file in ['image_list_train.txt','image_list_test.txt'] :
             with open(label_path+image_list_file, 'r') as f:
