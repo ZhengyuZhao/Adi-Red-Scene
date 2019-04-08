@@ -10,7 +10,7 @@ from tqdm import tqdm
 
 import argparse
 
-parser = argparse.ArgumentParser(description = "Dis-Map Generation")
+parser = argparse.ArgumentParser(description = "Generating the discriminative map per image")
 parser.add_argument("-batch_size", "--batch_size_ori", type=int, help="Number of images processed at one time", default=256)
 parser.add_argument("-datasets", "--datasets", nargs='+',help="Specify the dataset", default=['Places','SUN397'])
 parser.add_argument("-gpu", "--gpu", type=int, help="1 for gpu and -1 for cpu", default=1)
@@ -46,6 +46,7 @@ def  returnTF ():
     ])
     return tf
 
+#load the DisNet used for generating Dis-Map
 def load_model(model_file):
     if not os.access(model_file, os.W_OK):
         os.system('wget http://places2.csail.mit.edu/models_places365/' + model_file)
