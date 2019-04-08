@@ -17,9 +17,9 @@ parser.add_argument("-gpu", "--gpu", type=int, help="1 for gpu and -1 for cpu", 
 parser.add_argument("-arches", "--arches", nargs='+',help="Architecture of the CNN feature extractor", default=['alexnet'])
 parser.add_argument("-scales", "--scales", nargs='+',help="The total scales(up to 3), in which the features are extracted. ", default=['1','2','3'])
 parser.add_argument("-thresholds", "--thresholds", nargs='+',help="The threshold used to select the number of discriminative patches", default=['100','150'])
-parser.add_argument("-resolution", "--resolution", help="Whether use the original input image resolution as Adi-Red or lower ", default="ori_res")
-parser.add_argument("-selection_types", "--selection_types", nargs='+',help="The type of method (Adi-Red, dense or random) used for patch selection ", default=['adi_red'])
-parser.add_argument("-pretrain_databases", "--pretrain_databases",nargs='+', help="The pre-trained network (trained with either Places(PL) data set or ImageNet(IN)) used for feature extraction", default=['PL','PL','IN'])
+parser.add_argument("-resolution", "--resolution", help="specify the mode of input image resolution ('ori_res' or 'low_res' ", default="ori_res")
+parser.add_argument("-selection_types", "--selection_types", nargs='+',help="The type of method (adi_red, dense or random) used for patch selection ", default=['adi_red'])
+parser.add_argument("-pretrain_databases", "--pretrain_databases",nargs='+', help="Specify the pre-training data (Places(PL) or ImageNet(IN)) of the pre-trained CNN feature extractor", default=['PL','PL','IN'])
 args = parser.parse_args()
 batch_size_base=args.batch_size_base
 datasets=args.datasets
@@ -101,7 +101,7 @@ for dataset in datasets:
     label_path='./datasets/labels/'+dataset+'/'
     result_path = './results/intermediate/'+dataset+'/'
     if dataset=='SUN397':
-        splits=['01','02','03','04','05','06','07','08','09','10']
+        splits=['01','02','03','04','05','06','07','08','09','10']#10 fixed train/test splits for evaluation on SUN397 
         with open(label_path+'image_list_all.txt', 'r') as f:
             image_list = f.readlines()
     for arch in arches:
