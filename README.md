@@ -37,7 +37,7 @@ Alternatively, the required environment can be automatically set up by using [Re
 
 1. Navigate to the root folder.```cd Archive-MM-RP``` 
 2. An example test that covers the key elements of Adi-Red can be run with ```python example/demo.py```  
-3. To replicate the whole experiments, please run the shell script ```bash run.sh``` .  
+3. To replicate the whole experiments, please run the shell script ```bash run.sh``` 
 4. Get detailed explanation of the optional parameters of the python scripts ```python [name_of_script].py -h```
 
 **Note**: The datasets (images and labels) are automatically downloaded into ```Archive-MM-RP/datasets```. All the intermediate (e.g., features) outputs are saved in ```Archive-MM-RP/results/intermediate```, and the final results (automatically generated plots and tables) are saved in ```Archive-MM-RP/results/final```.
