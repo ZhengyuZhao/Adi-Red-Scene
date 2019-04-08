@@ -24,7 +24,13 @@ This code implements:
 In order to run the code, you need:  
 1. Python3 (tested with Python 3.7.2 on Ubuntu 16.04.6 LTS)
 2. PyTorch deep learning framework (tested with version 1.0.1)
-3. All the rest (data + networks) will be automatically downloaded with our scripts
+3. CUDA driver and corresponding cuDNN package if using GPU
+
+To install the required dependencies for Python3, please run:
+\texttt{\small{pip3 install -r requirements.txt}}.
+
+Alternatively, 
+
 
 ### Usage
 
