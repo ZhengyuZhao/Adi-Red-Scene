@@ -101,7 +101,6 @@ T = ['0', '50', '100', '150','200','225']
 avg_patch=np.zeros(len(T),dtype=int)
 
 for tt in range(len(lm_2_train)):
-    print(tt)
     for num,t in enumerate(T):
         t=int(t)
         avg_patch[num] =avg_patch[num]+len(np.where(np.array(lm_2_train[tt][2]) > t)[0])+len(np.where(np.array(lm_2_test[tt][2]) > t)[0])+len(np.where(np.array(lm_3_train[tt][2]) > t)[0])+len(np.where(np.array(lm_3_test[tt][2]) > t)[0])
@@ -138,12 +137,10 @@ T = ['0', '50', '100', '150','200','225']
 
 avg_patch_img=np.zeros(len(lm_2_train),dtype=int)
 for tt in range(len(lm_2_train)):
-    print(tt)
     avg_patch_img[tt] =avg_patch_img[tt]+len(np.where(np.array(lm_2_train[tt][2]) > 150)[0])+len(np.where(np.array(lm_2_test[tt][2]) > 150)[0])+len(np.where(np.array(lm_3_train[tt][2]) > 100)[0])+len(np.where(np.array(lm_3_test[tt][2]) > 100)[0])
 avg_dis=avg_patch_img/2/2            
 avg_dis_class=np.zeros(365,dtype=float)
 for i in range(0,len(lm_2_train),50):
-    print(i)
     avg_dis_class[i//50]=np.mean(avg_dis[i:i+50])
     
 label_path='./datasets/labels/Places/'
