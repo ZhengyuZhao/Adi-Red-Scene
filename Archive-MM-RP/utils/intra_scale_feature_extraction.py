@@ -98,7 +98,7 @@ def load_model(arch,pretrain_database):
 modes=['train','test']
 for dataset in datasets:
     image_path='./datasets/images/'+dataset+'/'
-    label_path='./datasets//labels'+dataset+'/'
+    label_path='./datasets/labels/'+dataset+'/'
     result_path = './results/intermediate/'+dataset+'/'
     if dataset=='SUN397':
         splits=['01','02','03','04','05','06','07','08','09','10']
