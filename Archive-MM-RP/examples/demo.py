@@ -15,7 +15,7 @@ import cv2
 
 arch='alexnet'
 scales=['1','2','3']
-#the threshold is set to 150 for both two local scales
+#here the threshold is set to 150 for both two local scales
 T2=150
 T3=150
 pretrain_databases=['PL','PL','IN']
@@ -67,8 +67,8 @@ def load_DisNet():
 
 def load_feature_extractor(scale,arch):
 #load the pre-trained models for patch/image feature extraction,
-#where for the global scale and local scale 1, the model that is
-#pre-trained on Places2 database is used, while for the local scale 3, ImageNet was used.    
+#where for the global scale and local scale 1, the model, which is
+#pre-trained on Places2 is used, while for the local scale 3, ImageNet was used.    
     if scale=='2' or scale=='1':
          # load the pre-trained weights
         model_file = '%s_places365.pth.tar' % arch
@@ -130,7 +130,7 @@ cv2.imwrite('./examples/image_heatmap.png',np.uint8(result))
 
 
 #extract features from the whole image (global scale)
-feature_extractor = load_feature_extractor('1',arch).to(device) 
+feature_extractor = load_feature_extractor('1',arch).to(device) #allow the change of architecture of the feature extractor
 feature_1 = feature_extractor(input_img.to(device)).cpu().detach().numpy() 
 if arch == 'alexnet':
     fea_dim=4096
@@ -197,4 +197,5 @@ local_features_2=Normalizer().transform(local_features_2)
 local_features_3=Normalizer().transform(local_features_3)
 #feature concatenation       
 feature_concat=np.concatenate((feature_1,local_features_2,local_features_3),axis=1)
+np.save('./examples/feature_concat.npy', feature_concat)
 
