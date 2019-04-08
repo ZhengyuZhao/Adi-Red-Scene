@@ -195,9 +195,12 @@ for dataset in datasets:
                                 cnt_list=0
                                 for t in range(0,batch_size):
                                     loc_m=np.array(cord_batch[t][2])
-                                    for tt,T in enumerate(thresholds):                                        
+                                    for tt,T in enumerate(thresholds):                                         
                                         pos=np.where(loc_m>int(T))
-                                        total_features[tt][k*batch_size+t]=np.amax(features[cnt_list:cnt_list+patch_numbers[t]][pos], axis=0)
+                                        if len(pos[0])==0:
+                                            total_features[tt][k*batch_size+t]=np.zeros((1,fea_dim))
+                                        else:    
+                                            total_features[tt][k*batch_size+t]=np.amax(features[cnt_list:cnt_list+patch_numbers[t]][pos], axis=0)
                                     cnt_list=cnt_list+patch_numbers[t]
                             if scale=='1':
                                 features = feature_extractor(input_images_batch.to(device))
