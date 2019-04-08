@@ -45,7 +45,7 @@ def load_DisNet():
     model_file = 'wideresnet18_places365.pth.tar'
     if not os.access(model_file, os.W_OK):
         os.system('wget http://places2.csail.mit.edu/models_places365/' + model_file)
-        os.system('wget https://raw.githubusercontent.com/csailvision/places365/master/wideresnet.py')
+        os.system('wget https://raw.githubusercontent.com/csailvision/places365/master/wideresnet.py'+' -P ./examples')
     import wideresnet
     model = wideresnet.resnet18(num_classes=365)
     checkpoint = torch.load(model_file, map_location=lambda storage, loc: storage)
