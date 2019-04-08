@@ -17,7 +17,7 @@ parser.add_argument("-gpu", "--gpu", type=int, help="1 for gpu and -1 for cpu", 
 parser.add_argument("-arches", "--arches", nargs='+',help="Architecture of the CNN feature extractor", default=['alexnet'])
 parser.add_argument("-scales", "--scales", nargs='+',help="The total scales(up to 3), in which the features are extracted. ", default=['1','2','3'])
 parser.add_argument("-thresholds", "--thresholds", nargs='+',help="The threshold used to select the number of discriminative patches", default=['100','150'])
-parser.add_argument("-resolution", "--resolution", help="specify the mode of input image resolution ('ori_res' or 'low_res' ", default="ori_res")
+parser.add_argument("-resolution", "--resolution", help="specify the mode of input image resolution ('ori_res' or 'low_res') ", default="ori_res")
 parser.add_argument("-selection_types", "--selection_types", nargs='+',help="The type of method (adi_red, dense or random) used for patch selection ", default=['adi_red'])
 parser.add_argument("-pretrain_databases", "--pretrain_databases",nargs='+', help="Specify the pre-training data (Places(PL) or ImageNet(IN)) of the pre-trained CNN feature extractor", default=['PL','PL','IN'])
 args = parser.parse_args()
