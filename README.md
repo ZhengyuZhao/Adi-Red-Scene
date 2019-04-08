@@ -29,8 +29,9 @@ In order to run the code, you need:
 To install the required dependencies for Python3, please run:  
 ```pip3 install -r requirements.txt```
 
-Alternatively, 
-
+Alternatively, the required environment can be automatically set up by using [ReproZip](https://www.reprozip.org/). The .rpz file can be downloaded [here](https://www.reprozip.org/), and installed following the instructions below:  
+```reprounzip docker setup Adi-Red-Scene.rpz Adi-Red-Experiment```  
+```reprounzip docker run Adi-Red-Experiment```
 
 ### Usage
 
