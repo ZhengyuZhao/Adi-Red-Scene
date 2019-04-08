@@ -13,8 +13,8 @@ window_params=args.window_params
 
 
 scales=['2','3']
-win_size=window_params[0]
-stride=window_params[1]
+win_size=int(window_params[0])
+stride=int(window_params[1])
 
 
 modes=['train','test']
