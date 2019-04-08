@@ -6,6 +6,8 @@ import numpy as np
 from PIL import Image
 import os
 import torchvision.models as models
+import matplotlib
+matplotlib.use('agg')
 from sklearn.preprocessing import Normalizer
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
@@ -20,7 +22,7 @@ pretrain_databases=['PL','PL','IN']
 image_name='./examples/sun_ayzbohufbfsmzzye.jpg'
 
 device = 'cpu'
-
+plt.ioff()
 def returnCAM(feature_conv, weight_softmax, class_idx):
 #compute the Dis-Map with the size of 14x14  
     nc, h, w = feature_conv.shape
