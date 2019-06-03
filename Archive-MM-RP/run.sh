@@ -9,11 +9,14 @@ python ./utils/adaptive_region_selection.py -datasets 'Places' 'SUN397' -window_
 #results for Table 1
 python ./utils/intra_scale_feature_extraction.py -batch_size_base 32 -datasets 'SUN397' -arches 'alexnet' -selection_types 'adi_red' 'dense' 'random' -scales 1 2 3 -thresholds 100 150 -resolution 'ori_res' -pretrain_databases 'PL' 'PL' 'IN'
 
-python ./utils/svm_classification.py -datasets 'SUN397' -arches 'alexnet' -scales 1 2 -T2 150 -T3 100 -selection_types 'adi_red' 'dense' 'random' -resolution 'ori_res' -pretrain_databases 'PL' 'PL' 'IN'
+python ./utils/svm_classification.py -datasets 'SUN397' -arches 'alexnet' -scales 1 2 -T2 150 -selection_types 'adi_red' -resolution 'ori_res' -pretrain_databases 'PL' 'PL' 'IN'
+python ./utils/svm_classification.py -datasets 'SUN397' -arches 'alexnet' -scales 1 2 -selection_types 'dense' 'random' -resolution 'ori_res' -pretrain_databases 'PL' 'PL' 'IN'
 
-python ./utils/svm_classification.py -datasets 'SUN397' -arches 'alexnet' -scales 1 3 -T2 150 -T3 100 -selection_types 'adi_red' 'dense' 'random' -resolution 'ori_res' -pretrain_databases 'PL' 'PL' 'IN'
+python ./utils/svm_classification.py -datasets 'SUN397' -arches 'alexnet' -scales 1 3 -T3 100 -selection_types 'adi_red' -resolution 'ori_res' -pretrain_databases 'PL' 'PL' 'IN'
+python ./utils/svm_classification.py -datasets 'SUN397' -arches 'alexnet' -scales 1 3  -selection_types 'dense' 'random' -resolution 'ori_res' -pretrain_databases 'PL' 'PL' 'IN'
 
-python ./utils/svm_classification.py -datasets 'SUN397' -arches 'alexnet' -scales 1 2 3 -T2 150 -T3 100 -selection_types 'adi_red' 'dense' 'random' -resolution 'ori_res' -pretrain_databases 'PL' 'PL' 'IN' 
+python ./utils/svm_classification.py -datasets 'SUN397' -arches 'alexnet' -scales 1 2 3 -T2 150 -T3 100 -selection_types 'adi_red' -resolution 'ori_res' -pretrain_databases 'PL' 'PL' 'IN' 
+python ./utils/svm_classification.py -datasets 'SUN397' -arches 'alexnet' -scales 1 2 3 -selection_types 'dense' 'random' -resolution 'ori_res' -pretrain_databases 'PL' 'PL' 'IN' 
 
 #results for Table 2
 python ./utils/intra_scale_feature_extraction.py -batch_size_base 16 -datasets 'SUN397' -arches 'resnet18' 'resnet50' -selection_types 'adi_red' -scales 1 2 3 -thresholds 100 150 -resolution 'ori_res' -pretrain_databases 'PL' 'PL' 'IN'
