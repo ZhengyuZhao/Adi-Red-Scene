@@ -21,7 +21,7 @@ python ./utils/svm_classification.py -datasets 'SUN397' -arches 'alexnet' -scale
 #results for Table 2
 python ./utils/intra_scale_feature_extraction.py -batch_size_base 16 -datasets 'SUN397' -arches 'resnet18' 'resnet50' -selection_types 'adi_red' -scales 1 2 3 -thresholds 100 150 -resolution 'ori_res' -pretrain_databases 'PL' 'PL' 'IN'
 
-python ./utils/svm_classification.py -datasets 'SUN397' -arches 'resnet18' 'resnet50' -scales 1 -pretrain_databases
+python ./utils/svm_classification.py -datasets 'SUN397' -arches 'alexnet' 'resnet18' 'resnet50' -scales 1 -pretrain_databases
 
 python ./utils/svm_classification.py -datasets 'SUN397' -arches 'resnet18' 'resnet50' -scales 1 2 3 -T2 150 -T3 100 -selection_types 'adi_red' -resolution 'ori_res' -pretrain_databases 'PL' 'PL' 'IN'
 
