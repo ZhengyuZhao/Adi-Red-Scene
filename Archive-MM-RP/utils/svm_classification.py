@@ -125,7 +125,7 @@ for dataset in datasets:
                 acc=model.score(features_test,labels)
                 print(acc)
                 acc_sum=acc+acc_sum
-            acc_avg=acc_sum/len(splits)
+            acc_avg=acc_sum/len(splits)*100
             print(acc_avg)
             #save the accuracy on Places or the average accuracy over 10 spilts on SUN397
             if scales==['1']:
