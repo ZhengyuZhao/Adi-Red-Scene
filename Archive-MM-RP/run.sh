@@ -46,6 +46,12 @@ python ./utils/svm_classification.py -datasets 'Places' -arches 'alexnet' -scale
 python ./utils/svm_classification.py -datasets 'Places' -arches 'alexnet' -scales 1 2 3 -T2 150 -T3 100 -selection_types 'adi_red' -resolution 'ori_res' -pretrain_databases 'PL' 'PL' 'PL'
 python ./utils/svm_classification.py -datasets 'Places' -arches 'alexnet' -scales 1 2 3 -T2 150 -T3 100 -selection_types 'adi_red' -resolution 'ori_res' -pretrain_databases 'PL' 'PL' 'IN'
 
+#results for Table Resolution
+python ./utils/intra_scale_feature_extraction.py -datasets 'Places' -arches 'alexnet' -selection_types 'adi_red' -scales 1 2 3 -thresholds 100 150 -resolution 'low_res' -pretrain_databases 'PL' 'PL' 'IN'
+
+python ./utils/svm_classification.py -datasets 'Places' -arches 'alexnet' -scales 1 3 -T3 100 -selection_types 'adi_red' -resolution 'low_res' -pretrain_databases 'PL' 'PL' 'IN'
+python ./utils/svm_classification.py -datasets 'Places' -arches 'alexnet' -scales 1 2 -T2 150 -selection_types 'adi_red' -resolution 'low_res' -pretrain_databases 'PL' 'PL' 'IN'
+python ./utils/svm_classification.py -datasets 'Places' -arches 'alexnet' -scales 1 2 3 -T2 150 -T3 100 -selection_types 'adi_red' -resolution 'low_res' -pretrain_databases 'PL' 'PL' 'IN'
 
 #plot four tables (original Table 1, Table 2 and Table 4, and table for the resolution experiment) and two graphs (Figure 3 and Figure 4) 
 
