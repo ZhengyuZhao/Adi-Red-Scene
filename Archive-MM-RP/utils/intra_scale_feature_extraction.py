@@ -9,7 +9,8 @@ from tqdm import tqdm
 
 
 import argparse
-
+import warnings
+warnings.filterwarnings('ignore', 'Possibly corrupt EXIF data*')
 parser = argparse.ArgumentParser(description = "Intra-scale feature extraction")
 parser.add_argument("-batch_size_base", "--batch_size_base", type=int, help="Number of images processed at one time", default=32)
 parser.add_argument("-datasets", "--datasets", nargs='+',help="Specify the dataset used for evaluation", default=['SUN397','Places'])
