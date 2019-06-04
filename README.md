@@ -36,7 +36,8 @@ Alternatively, the required environment can be automatically set up by using [Re
 ### Usage
 
 1. Navigate to the root folder.```cd Archive-MM-RP``` 
-2. An example test that covers the key elements of Adi-Red can be run with ```python example/demo.py```  
+2. An example test that covers the key elements of Adi-Red can be run with ```python examples
+/demo.py```  
 3. To replicate the whole experiments, please run the shell script ```bash run.sh``` 
 4. Get detailed explanation of the optional parameters of the python scripts ```python [name_of_script].py -h```
 
