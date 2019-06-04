@@ -13,14 +13,14 @@ plt.ioff()
 
 
 result_path='./results/'+'intermediate/'+'SUN397/'
-r_1_c_1=np.load(result_path+'acc_'+'1_3'+'_'+'alexnet'+'_'+'random'+'_'+'_'+'_'+'PL'+'_'+'IN'+'_'+'ori_res'+'.npy')
-r_2_c_1=np.load(result_path+'acc_'+'1_2'+'_'+'alexnet'+'_'+'random'+'_'+'_'+'_'+'PL'+'_'+'PL'+'_'+'ori_res'+'.npy')    
+r_1_c_1=np.load(result_path+'acc_'+'1_3'+'_'+'alexnet'+'_'+'random'+'_'+'_'+'PL'+'_'+'IN'+'_'+'ori_res'+'.npy')
+r_2_c_1=np.load(result_path+'acc_'+'1_2'+'_'+'alexnet'+'_'+'random'+'_'+'_'+'PL'+'_'+'PL'+'_'+'ori_res'+'.npy')    
 r_3_c_1=np.load(result_path+'acc_'+'1_2_3'+'_'+'alexnet'+'_'+'random'+'_'+'_'+'_'+'PL'+'_'+'PL'+'_'+'IN'+'_'+'ori_res'+'.npy')    
-r_1_c_2=np.load(result_path+'acc_'+'1_3'+'_'+'alexnet'+'_'+'dense'+'_'+'_'+'_'+'PL'+'_'+'IN'+'_'+'ori_res'+'.npy')
+r_1_c_2=np.load(result_path+'acc_'+'1_3'+'_'+'alexnet'+'_'+'dense'+'_'+'_'+'PL'+'_'+'IN'+'_'+'ori_res'+'.npy')
 r_2_c_2=np.load(result_path+'acc_'+'1_2'+'_'+'alexnet'+'_'+'dense'+'_'+'_'+'_'+'PL'+'_'+'PL'+'_'+'ori_res'+'.npy')    
 r_3_c_2=np.load(result_path+'acc_'+'1_2_3'+'_'+'alexnet'+'_'+'dense'+'_'+'_'+'_'+'PL'+'_'+'PL'+'_'+'IN'+'_'+'ori_res'+'.npy')
-r_1_c_3=np.load(result_path+'acc_'+'1_3'+'_'+'alexnet'+'_'+'adi_red'+'_'+T2+'_'+T3+'_'+'PL'+'_'+'IN'+'_'+'ori_res'+'.npy')    
-r_2_c_3=np.load(result_path+'acc_'+'1_2'+'_'+'alexnet'+'_'+'adi_red'+'_'+T2+'_'+T3+'_'+'PL'+'_'+'PL'+'_'+'ori_res'+'.npy')    
+r_1_c_3=np.load(result_path+'acc_'+'1_3'+'_'+'alexnet'+'_'+'adi_red'+'_'+T3+'_'+'PL'+'_'+'IN'+'_'+'ori_res'+'.npy')    
+r_2_c_3=np.load(result_path+'acc_'+'1_2'+'_'+'alexnet'+'_'+'adi_red'+'_'+T2+'_'+'PL'+'_'+'PL'+'_'+'ori_res'+'.npy')    
 r_3_c_3=np.load(result_path+'acc_'+'1_2_3'+'_'+'alexnet'+'_'+'adi_red'+'_'+T2+'_'+T3+'_'+'PL'+'_'+'PL'+'_'+'IN'+'_'+'ori_res'+'.npy')    
 
 fig = plt.figure()
@@ -72,7 +72,7 @@ fig.clf()
 result_path='./results/'+'intermediate/'+'Places/'
 r_1=np.load(result_path+'acc_'+'1'+'_'+'alexnet'+'_'+'PL'+'.npy')    
 r_2=np.load(result_path+'acc_'+'1_3'+'_'+'alexnet'+'_'+'adi_red'+'_'+'100'+'_'+'PL'+'_'+'IN'+'_'+'ori_res'+'.npy')    
-r_3=np.load(result_path+'acc_'+'1_2'+'_'+'alexnet'+'_'+'adi_red'+'_'+'100'+'_'+'PL'+'_'+'PL'+'_'+'ori_res'+'.npy')    
+r_3=np.load(result_path+'acc_'+'1_2'+'_'+'alexnet'+'_'+'adi_red'+'_'+'150'+'_'+'PL'+'_'+'PL'+'_'+'ori_res'+'.npy')    
 r_4=np.load(result_path+'acc_'+'1_2_3'+'_'+'alexnet'+'_'+'adi_red'+'_'+'150'+'_'+'100'+'_'+'PL'+'_'+'IN'+'_'+'IN'+'_'+'ori_res'+'.npy')    
 r_5=np.load(result_path+'acc_'+'1_2_3'+'_'+'alexnet'+'_'+'adi_red'+'_'+'150'+'_'+'100'+'_'+'PL'+'_'+'PL'+'_'+'PL'+'_'+'ori_res'+'.npy')    
 r_6=np.load(result_path+'acc_'+'1_2_3'+'_'+'alexnet'+'_'+'adi_red'+'_'+'150'+'_'+'100'+'_'+'PL'+'_'+'PL'+'_'+'IN'+'_'+'ori_res'+'.npy')    
@@ -120,7 +120,9 @@ fig = plt.figure()
 ax = fig.add_subplot(111)
 ax.plot(x, y1,color='red', linewidth=3, marker='o')
 
-ax.set_ylim(39, 43)#range of y-axis
+# ax.set_ylim(39, 43)#range of y-axis
+ax.set_ylim(min(y1)-0.5, max(y1)+0.5)
+
 ax.set_xlim(0, 250)#range of y-axis
 for j in range(len(T)):     
     ax.text(x[j],y1[j]+0.3, str(avg_dis[j])[:4])
@@ -183,11 +185,11 @@ fig.clf()
 #Table resolution
 
 result_path='./results/'+'intermediate/'+'Places/'
-r_1_c_1=np.load(result_path+'acc_'+'1_3'+'_'+'alexnet'+'_'+'adi_red'+'_'+'_'+T3+'_'+'PL'+'_'+'IN'+'_'+'low_res'+'.npy')
-r_2_c_1=np.load(result_path+'acc_'+'1_2'+'_'+'alexnet'+'_'+'adi_red'+'_'+T2+'_'+'_'+'PL'+'_'+'PL'+'_'+'low_res'+'.npy')    
+r_1_c_1=np.load(result_path+'acc_'+'1_3'+'_'+'alexnet'+'_'+'adi_red'+'_'+T3+'_'+'PL'+'_'+'IN'+'_'+'low_res'+'.npy')
+r_2_c_1=np.load(result_path+'acc_'+'1_2'+'_'+'alexnet'+'_'+'adi_red'+'_'+T2+'_'+'PL'+'_'+'PL'+'_'+'low_res'+'.npy')    
 r_3_c_1=np.load(result_path+'acc_'+'1_2_3'+'_'+'alexnet'+'_'+'adi_red'+'_'+T2+'_'+T3+'_'+'PL'+'_'+'PL'+'_'+'IN'+'_'+'low_res'+'.npy')    
-r_1_c_2=np.load(result_path+'acc_'+'1_3'+'_'+'alexnet'+'_'+'adi_red'+'_'+'_'+T3+'_'+'PL'+'_'+'IN'+'_'+'ori_res'+'.npy')
-r_2_c_2=np.load(result_path+'acc_'+'1_2'+'_'+'alexnet'+'_'+'adi_red'+'_'+T2+'_'+'_'+'PL'+'_'+'PL'+'_'+'ori_res'+'.npy')    
+r_1_c_2=np.load(result_path+'acc_'+'1_3'+'_'+'alexnet'+'_'+'adi_red'+'_'+T3+'_'+'PL'+'_'+'IN'+'_'+'ori_res'+'.npy')
+r_2_c_2=np.load(result_path+'acc_'+'1_2'+'_'+'alexnet'+'_'+'adi_red'+'_'+T2+'_'+'PL'+'_'+'PL'+'_'+'ori_res'+'.npy')    
 r_3_c_2=np.load(result_path+'acc_'+'1_2_3'+'_'+'alexnet'+'_'+'adi_red'+'_'+T2+'_'+T3+'_'+'PL'+'_'+'PL'+'_'+'IN'+'_'+'ori_res'+'.npy')
 
 fig = plt.figure()
@@ -199,7 +201,6 @@ cols = ('# of scales\n(global+local)', 'Pre-training\ndataset', 'Low\nresolution
 #rows = ['1+1','1+1','1+2']
 cellText = [['1+1','PL/-/IN',r_1_c_1,r_1_c_2], ['1+1','PL/PL/-',r_2_c_1,r_2_c_2], ['1+2',' PL/PL/IN',r_3_c_1,r_3_c_2]]
 cellText = [[i[0], i[1], '%.2f' % (i[2]*100), '%.2f' % (i[3]*100)] for i in cellText]
-
 the_table=ax.table(cellText=cellText, cellLoc='center', colLabels=cols,colLoc='center',loc='upper center')
 the_table.auto_set_font_size(False)
 the_table.set_fontsize(26)
