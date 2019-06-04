@@ -9,7 +9,8 @@ import os
 from tqdm import tqdm
 
 import argparse
-
+import warnings
+warnings.filterwarnings('ignore', 'Possibly corrupt EXIF data*')
 parser = argparse.ArgumentParser(description = "Generating the discriminative map per image")
 parser.add_argument("-batch_size", "--batch_size_ori", type=int, help="Number of images processed at one time", default=256)
 parser.add_argument("-datasets", "--datasets", nargs='+',help="Specify the dataset", default=['Places','SUN397'])
