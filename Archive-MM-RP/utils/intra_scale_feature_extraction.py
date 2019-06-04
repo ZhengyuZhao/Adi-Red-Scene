@@ -179,14 +179,14 @@ for dataset in datasets:
                                     for tt,T in enumerate(thresholds):                                         
                                         pos=np.where(loc_m>int(T))
                                         if len(pos[0])==0:
-                                            total_features[tt][k*batch_size+t]=np.zeros((1,fea_dim))
+                                            total_features[tt][k*batch_size_ori+t]=np.zeros((1,fea_dim))
                                         else:    
-                                            total_features[tt][k*batch_size+t]=np.amax(features[cnt_list:cnt_list+patch_numbers[t]][pos], axis=0)
+                                            total_features[tt][k*batch_size_ori+t]=np.amax(features[cnt_list:cnt_list+patch_numbers[t]][pos], axis=0)
                                     cnt_list=cnt_list+patch_numbers[t]
                             if scale=='1':
                                 features = feature_extractor(input_images_batch.to(device))
                                 features=features.view(batch_size,-1).cpu().detach().numpy()
-                                total_features[k*batch_size:min((k+1)*batch_size,num_images)]=features
+                                total_features[k*batch_size_ori:min((k+1)*batch_size_ori,num_images)]=features
                         if scale=='1':                        
                             np.save(result_path+'total_features_'+scale+'_'+mode+'_'+arch+'_'+pretrain_databases[int(scale)-1]+'.npy', total_features)
                             if dataset=='SUN397':
@@ -252,7 +252,7 @@ for dataset in datasets:
                             features = feature_extractor(img_patches_batch.to(device))
                             features=features.view(int(patch_numbers_batch),-1).cpu().detach().numpy()
                             for t in range(0,batch_size):    
-                                  total_features[k*batch_size+t]=np.amax(features[t*patch_numbers:(t+1)*patch_numbers], axis=0)                      
+                                  total_features[k*batch_size_ori+t]=np.amax(features[t*patch_numbers:(t+1)*patch_numbers], axis=0)                      
                         np.save(result_path+'total_features_'+scale+'_'+mode+'_'+arch+'_'+selection_type+'_'+'_'+pretrain_databases[int(scale)-1]+'_'+resolution+'.npy', total_features)   
                         if dataset=='SUN397':
                             for split in splits:
