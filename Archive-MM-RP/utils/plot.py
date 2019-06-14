@@ -57,7 +57,7 @@ ax.yaxis.set_visible(False)
 cols = ('Networks', 'Baseline', 'Adi-Red')
 #rows = ['1+1','1+1','1+2']
 cellText = [['AlexNet',r_1_c_1,r_1_c_2], ['ResNet18',r_2_c_1,r_2_c_2], ['ResNet50',r_3_c_1,r_3_c_2]]
-cellText = [[i[0], i[1], '%.2f' % (i[2]*100), '%.2f' % (i[3]*100)] for i in cellText]
+cellText = [[i[0], '%.2f' % (i[1]), '%.2f' % (i[2])] for i in cellText]
 
 the_table=ax.table(cellText=cellText, cellLoc='center', colLabels=cols,colLoc='center',loc='upper center')
 the_table.auto_set_font_size(False)
@@ -85,7 +85,7 @@ ax.yaxis.set_visible(False)
 cols = ('# of scales\n(global+local)', 'Pre-training\ndataset', 'Accuracy (%)')
 #rows = ['1+1','1+1','1+2']
 cellText = [['1','PL',r_1], ['1+1','PL/-/IN',r_2], ['1+1','PL/PL/-',r_3], ['1+2','PL/IN/IN',r_4], ['1+2','PL/PL/PL',r_5], ['1+2','PL/PL/IN',r_6]]
-cellText = [[i[0], i[1], '%.2f' % (i[2]*100)] for i in cellText]
+cellText = [[i[0], i[1], '%.2f' % (i[2])] for i in cellText]
 
 the_table=ax.table(cellText=cellText, cellLoc='center', colLabels=cols,colLoc='center',loc='upper center')
 the_table.auto_set_font_size(False)
@@ -128,7 +128,6 @@ for j in range(len(T)):
     ax.text(x[j],y1[j]+0.3, str(avg_dis[j])[:4])
 plt.xlabel('Threshold',fontsize=12,fontweight='semibold')
 plt.ylabel('Classfication accuracy (%)',fontsize=12,fontweight='semibold')
-ax.legend('2')
 plt.show()
 fig.savefig(final_path+'Figure3.png', bbox_inches='tight')
 fig.clf()
@@ -200,7 +199,7 @@ ax.yaxis.set_visible(False)
 cols = ('# of scales\n(global+local)', 'Pre-training\ndataset', 'Low\nresolution', 'Adi-Red')
 #rows = ['1+1','1+1','1+2']
 cellText = [['1+1','PL/-/IN',r_1_c_1,r_1_c_2], ['1+1','PL/PL/-',r_2_c_1,r_2_c_2], ['1+2',' PL/PL/IN',r_3_c_1,r_3_c_2]]
-cellText = [[i[0], i[1], '%.2f' % (i[2]*100), '%.2f' % (i[3]*100)] for i in cellText]
+cellText = [[i[0], i[1], '%.2f' % (i[2]), '%.2f' % (i[3])] for i in cellText]
 the_table=ax.table(cellText=cellText, cellLoc='center', colLabels=cols,colLoc='center',loc='upper center')
 the_table.auto_set_font_size(False)
 the_table.set_fontsize(26)
